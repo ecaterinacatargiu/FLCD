@@ -1,0 +1,5 @@
+S
+S X
+a b
+S X@X
+X a@X b

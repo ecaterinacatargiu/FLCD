@@ -1,0 +1,64 @@
+%{ 	 
+#include <stdio.h>
+#include <string.h>
+int lines = 0;
+int correct=1;
+int badLine=0;
+%} 
+
+%option noyywrap
+%option caseless
+
+NUMBER		[+-]?[1-9][0-9]*|0
+STRING		\"[a-zA-Z0-9]*\"
+CONST		{NUMBER}|{STRING}
+ID		    [a-zA-Z]+[a-zA-Z0-9_]*
+
+%%
+
+
+start       {printf("Reserved word: %s\n", yytext);return "start";}
+end		    {printf("Reserved word: %s\n", yytext);return "end";}
+if		    {printf("Reserved word: %s\n", yytext);}
+else		{printf("Reserved word: %s\n", yytext);}
+while		{printf("Reserved word: %s\n", yytext);}
+for		    {printf("Reserved word: %s\n", yytext);}
+number		{printf("Reserved word: %s\n", yytext);}
+string		{printf("Reserved word: %s\n", yytext);}
+boolean		{printf("Reserved word: %s\n", yytext);}
+read		{printf("Reserved word: %s\n", yytext);}
+print		{printf("Reserved word: %s\n", yytext);}
+true            {printf("Reserved word: %s\n", yytext);}
+false           {printf("Reserved word: %s\n", yytext);}
+
+";"		{printf( "Separator: %s\n", yytext ); return ';';}
+"("		{printf( "Separator: %s\n", yytext );return '(';}
+")"		{printf( "Separator: %s\n", yytext );return ')';}
+"["		{printf( "Separator: %s\n", yytext );return '[';}
+"]"		{printf( "Separator: %s\n", yytext );return ']';}
+"{"		{printf( "Separator: %s\n", yytext );return '{';}
+"}"		{printf( "Separator: %s\n", yytext );return '}';}
+
+"+"		{printf( "Operator: %s\n", yytext );return '+';}
+"-"		{printf( "Operator: %s\n", yytext );return '-';}
+"*"		{printf( "Operator: %s\n", yytext );return '*';}
+"/"		{printf( "Operator: %s\n", yytext );return '/';}
+"%"		{printf( "Operator: %s\n", yytext );return '%';}
+"="		{printf( "Operator: %s\n", yytext );return '=';}
+"=="	{printf( "Operator: %s\n", yytext );return '==';}
+"<"		{printf( "Operator: %s\n", yytext );return '<';}
+"<="	{printf( "Operator: %s\n", yytext );return '<=';}
+">"		{printf( "Operator: %s\n", yytext );return '>';}
+">="	{printf( "Operator: %s\n", yytext );return '>=';}
+"and"	{printf( "Operator: %s\n", yytext );return 'and';}
+"or"	{printf( "Operator: %s\n", yytext );return 'or';}
+"not"	{printf( "Operator: %s\n", yytext );return 'not';}	
+
+{ID}		{printf( "Identifier: %s\n", yytext ); return ID;}
+
+{CONST}		{printf( "Constant: %s\n", yytext ); return CONST;}
+
+[ \t]+  	{}
+[\n]+		{lines++;}
+		 
+. {correct=0; badLine= lines; printf("Incorect:%s\n",yytext);}

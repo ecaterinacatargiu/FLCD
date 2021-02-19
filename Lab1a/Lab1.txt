@@ -1,0 +1,59 @@
+For my program: 
+
+-alphabetical letters(A-Z), decimal digits(1-9)
+-operators: arithemetic - + => aduna
+			- - => scade
+			- : => imparte
+			- x => ori
+			- > => mai mare
+			- < => mai mic
+			- = => este
+			- ; => /
+			- ++ => ##
+			- ( => [
+			- ) => ]
+			
+-reserved words: - int => intreg
+		 - float => real
+		 - return => dainapoi
+		 - if => dacadaca
+		 - else => dacanu
+		 - gataif
+		 - for => pt
+		 - for arrays: sir : value1, value2..
+		 - lungime(sir) => fucntion that specify the length of an array
+		 
+
+p1.cati: compute the maximum of two numbers
+
+	real a
+	real b
+	dacadaca a mai mare b
+		da inapoi a
+	dacanu
+		da inapoi b
+
+p2.cati: compute the sum of the first n numbers
+
+	intreg n
+	intreg suma 
+	suma este 0
+	pt[intreg i/ i mai mic n/ i##]
+		suma =:= suma aduna suma
+	dainapoi suma
+
+p3.cati: compute the product of the numbers of an array
+
+	!122integer n => lexical error
+	intreg prod
+	intreg sir = sir: [1,2,3,4]
+	prod este 1c => not an int value
+	intreg lungime = lungime(sir)
+	pt[intreg i/ i mai mic lungime/ i##]
+		prod ori prod
+	daynapoi prod
+
+
+
+
+

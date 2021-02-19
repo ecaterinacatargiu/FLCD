@@ -1,0 +1,25 @@
+program
+program stmtList stmt cmpStmt ioStmt assignStmt simpleStmt whileStmt ifStmt structStmt operator relation constant factor term expr condition typel arraydecl type declaration decllist
+startmagic enfmagic + - * ^ / lt lte equals ne gte gt ( ) [ ] { } input echo gountil do incase then ~ int char string listof: !
+program startmagic@cmptStmt@endmagic
+operator + - * ^ /
+relation lt lte equals ne gte gt
+constant nr
+factor (expression) constant identifier identifier[nr@identifier]
+term term@operator@factor factor
+expr expression@operator@term term@operator@term
+cond expr@relation@expr
+ioStmt input@identifier echo@identifier
+assignStmt identifier=expr
+simpelStmt assignStmt ioStmt
+cmpStmt {stmtList}
+whileStmt gountil@condition@do@cmpStmt
+ifStmt = incase(@condition@)@then@cmpStmt
+structStmt cmpStmt ifStmt whileStmt
+stmt simpleStmt~@structStmt~@decllist~
+stmtList stmt stmt~stmtlist
+typel int char string
+arraydecl listof@typel
+type type; arraydecl
+declaration type!identifier~
+decllist decl decllist

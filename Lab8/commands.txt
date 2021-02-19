@@ -1,0 +1,4 @@
+lex spec.lxi
+gcc lex.yy.c -o main
+
+./main p1.txt

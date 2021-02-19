@@ -1,0 +1,35 @@
+The words - predefined tokens are specified between " and ":  
+
+program = statementlist
+
+statementList = statement ";" statement
+
+statement= dec | simplestatement | structstatement
+simplestatement = assignmentStatement | outStatement
+assignmentStatement = identifier "=:=" expression
+outStatement = ("read" |"savad") "(" identifier ")" 
+
+structStatement = ifStatement | whileStatement | forStatement | cmpStatement
+ifStatement = daca” “[“ condition “]” stmt {dacanu stmt}
+condition = expression RELATION expression
+
+expression = term | expression operation expression | “(” expression operation expression “)”
+operation = “aduna” | “-” | “x” | “:” | "&"
+term = identifier | nr
+
+whileStatement = “incaunpic” condition compstmt 
+forStatement = “pt” “[“ assignment; condition;  “]” stmt
+
+cmpStatement = “{“ statementList ”}”
+
+dec = type identifier
+type = mainType | arrayType
+
+mainType = "intreg" | “lung” | “real” | "dublu" | "caracter"
+arrayType = mainType "[" elements "]"
+
+
+
+
+
+
